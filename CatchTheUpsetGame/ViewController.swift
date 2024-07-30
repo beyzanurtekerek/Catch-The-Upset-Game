@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         
         scoreLabel.text = "Score: \(score)" // score label da skoru gösterdik
         
-        // highscore chech
+        // highscore check
         let storedHighScore = UserDefaults.standard.object(forKey: "highscore")
         
         if storedHighScore == nil {
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         
         // timers
         counter = 20
-        scoreLabel.text = "\(counter)" // veya String(counter)
+        timeLabel.text = "\(counter)" // veya String(counter)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true) // bununla kac saniyede bir ne yapacagımızı yazabiliyoruz
         hideTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(hideUpset), userInfo: nil, repeats: true)
         
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
             
             
             // high score
-            if self.score == self.highScore {
+            if self.score > self.highScore {
                 self.highScore = self.score
                 highScoreLabel.text = "Highscore: \(self.highScore)"
                 UserDefaults.standard.set(self.highScore, forKey: "highscore")
